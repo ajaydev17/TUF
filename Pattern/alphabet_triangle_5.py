@@ -4,8 +4,6 @@
 # B C D E
 # A B C D E
 
-
-
 # prints the above pattern
 
 def print_triangle(n: int) -> None:
