@@ -8,4 +8,4 @@ def nth_fibonacci_number(number):
     return nth_fibonacci_number(number - 1) + nth_fibonacci_number(number - 2)
 
 
-print(nth_fibonacci_number(100))
+print(nth_fibonacci_number(10))
