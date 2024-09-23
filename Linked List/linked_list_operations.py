@@ -83,3 +83,20 @@ class LinkedList:
 
         return self.length
 
+    def traverse(self):
+        current = self.head
+
+        while current is not None:
+            print(current.value)
+            current = current.next
+
+    def search(self, target):
+        current = self.head
+
+        while current is not None:
+            if current.value == target:
+                return True
+            current = current.next
+
+        return False
+
