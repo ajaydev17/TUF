@@ -11,6 +11,6 @@ def left_rotate_array(arr, k):
 
 
 my_array = [1, 2, 3, 4, 5, 6]
-k = 5
+k = 3
 left_rotate_array(my_array, k)
 print(my_array)
