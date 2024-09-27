@@ -100,3 +100,25 @@ class LinkedList:
 
         return False
 
+    def get_node(self, index):
+        if index == -1:
+            return self.tail
+        elif index < -1 or index >= self.length:
+            return None
+        elif index == 1:
+            return self.head
+
+        current = self.head
+        for _ in range(index):
+            current = current.next
+
+        return current
+
+    def set_value(self, index, value):
+        temp = self.get_node(index)
+
+        if temp:
+            temp.value = value
+            return True
+
+        return False
