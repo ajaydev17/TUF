@@ -58,17 +58,18 @@ class LinkedList:
         return self.length
 
     def insert(self, value, index):
-        if index < 1:
+        if index < 1 or index > self.length:
             return "Invalid index provided."
 
         new_node = Node(value)
 
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        elif index == 1:
-            new_node.next = self.head
-            self.head = new_node
+        if index == 0:
+            if self.head is None:
+                self.head = new_node
+                self.tail = new_node
+            else:
+                new_node.next = self.head
+                self.head = new_node
         else:
             temp_node = self.head
 
@@ -78,6 +79,9 @@ class LinkedList:
             temp_node_next = temp_node.next
             new_node.next = temp_node_next
             temp_node.next = new_node
+
+            if new_node.next is None:
+                self.tail = new_node
 
         self.length = self.length + 1
 
@@ -103,9 +107,9 @@ class LinkedList:
     def get_node(self, index):
         if index == -1:
             return self.tail
-        elif index < -1 or index >= self.length:
+        elif index < 0 or index >= self.length:
             return None
-        elif index == 1:
+        elif index == 0:
             return self.head
 
         current = self.head
