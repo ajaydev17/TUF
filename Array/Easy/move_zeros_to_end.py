@@ -7,7 +7,7 @@ def move_zeros_to_end(arr):
             j = i
             break
 
-    if j == -1:
+    if j == -1 or len(arr) == 1 and arr[0] == 0:
         return arr
 
     for k in range(j + 1, len(arr)):
