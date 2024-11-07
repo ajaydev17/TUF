@@ -1,8 +1,17 @@
 # node definition
 
 class Node:
+    """
+    Node class representing a single node in a linked list.
+    """
 
     def __init__(self, value):
+        """
+        Initializes a new node with the given value.
+
+        :param value: The value of the node.
+        """
+
         self.value = value
         self.next = None
 
@@ -10,13 +19,26 @@ class Node:
 # linked list definition
 
 class LinkedList:
+    """
+    Linked List class representing a linked list of nodes.
+    """
 
     def __init__(self):
+        """
+        Initializes an empty linked list with a head and tail node.
+        """
+
         self.head = None
         self.tail = None
         self.length = 0
 
     def __str__(self):
+        """
+        Returns a string representation of the linked list.
+
+        :return: A string containing the values of the nodes in the linked list, separated by ' --> '.
+        """
+
         result = ''
         temp_node = self.head
 
@@ -30,6 +52,13 @@ class LinkedList:
         return result
 
     def append(self, value):
+        """
+        Adds a new node with the given value to the end of the linked list.
+
+        :param value: The value of the new node.
+        :return: The new length of the linked list.
+        """
+
         new_node = Node(value)
 
         if self.head is None:
@@ -44,6 +73,13 @@ class LinkedList:
         return self.length
 
     def prepend(self, value):
+        """
+        Adds a new node with the given value to the beginning of the linked list.
+
+        :param value: The value of the new node.
+        :return: The new length of the linked list.
+        """
+
         new_node = Node(value)
 
         if self.head is None:
@@ -58,6 +94,14 @@ class LinkedList:
         return self.length
 
     def insert(self, value, index):
+        """
+        Inserts a new node with the given value at the specified index in the linked list.
+
+        :param value: The value of the new node.
+        :param index: The position at which to insert the new node.
+        :return: The new length of the linked list.
+        """
+
         if index < 1 or index > self.length:
             return "Invalid index provided."
 
@@ -88,6 +132,10 @@ class LinkedList:
         return self.length
 
     def traverse(self):
+        """
+        Prints the values of the nodes in the linked list.
+        """
+
         current = self.head
 
         while current is not None:
@@ -95,6 +143,12 @@ class LinkedList:
             current = current.next
 
     def search(self, target):
+        """
+        Checks if the given value is present in the linked list.
+        :param target: value to search for in the linked list.
+        :return: True if the target is found, False otherwise.
+        """
+
         current = self.head
 
         while current is not None:
@@ -105,6 +159,13 @@ class LinkedList:
         return False
 
     def get_node(self, index):
+        """
+        Returns the node at the specified index in the linked list.
+
+        :param index: The index of the node to retrieve.
+        :return: The node at the specified index or None if the index is invalid.
+        """
+
         if index == -1:
             return self.tail
         elif index < 0 or index >= self.length:
@@ -119,6 +180,14 @@ class LinkedList:
         return current
 
     def set_value(self, index, value):
+        """
+        Sets the value of the node at the specified index in the linked list.
+
+        :param index: The index of the node to set the value for.
+        :param value: The new value for the node.
+        :return: True if the index is valid, False otherwise.
+        """
+
         temp = self.get_node(index)
 
         if temp:
@@ -128,6 +197,12 @@ class LinkedList:
         return False
 
     def pop_first(self):
+        """
+        Removes and returns the first node from the linked list.
+
+        :return: The popped node or None if the linked list is empty.
+        """
+
         if self.length == 0:
             return None
 
@@ -145,6 +220,12 @@ class LinkedList:
         return popped_node
 
     def pop(self):
+        """
+        Removes and returns the last node from the linked list.
+
+        :return: The popped node or None if the linked list is empty.
+        """
+
         if self.length == 0:
             return None
 
@@ -167,6 +248,13 @@ class LinkedList:
         return popped_node
 
     def remove(self, index):
+        """
+        Removes and returns the node at the specified index from the linked list.
+
+        :param index: The index of the node to remove.
+        :return: The popped node or None if the index is invalid.
+        """
+
         if index < -1 or index >= self.length:
             return None
 
