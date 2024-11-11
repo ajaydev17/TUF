@@ -272,3 +272,58 @@ class LinkedList:
         self.length = self.length - 1
 
         return popped_node
+
+    def reverse(self):
+        """
+        Reverses the order of the nodes in the linked list.
+        """
+
+        prev_node = None
+        current_node = self.head
+        next_node = None
+
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+
+        self.tail = self.head
+        self.head = prev_node
+
+    def middle_node(self):
+        """
+        Returns the middle node of the linked list.
+
+        :return: The middle node or None if the linked list has an odd number of nodes.
+        """
+
+        slow_node = self.head
+        fast_node = self.head
+
+        while fast_node is not None and fast_node.next is not None:
+            slow_node = slow_node.next
+            fast_node = fast_node.next.next
+
+        return slow_node
+
+    def remove_duplicates(self):
+        """
+        Removes duplicate nodes from the linked list.
+        """
+
+        if self.head is None:
+            return
+
+        node_values = set()
+        current_node = self.head
+        node_values.add(current_node.value)
+
+        while current_node.next is not None:
+            if current_node.next.value in node_values:
+                current_node.next = current_node.next.next
+            else:
+                node_values.add(current_node.next.value)
+                current_node = current_node.next
+
+        self.tail = current_node
