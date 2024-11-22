@@ -46,3 +46,28 @@ def max_subarray_kadane(nums):
         max_sum = max(max_sum, current_sum)
 
     return max_sum
+
+# follow up question print the subarray
+
+def max_subarray_print(nums):
+    max_sum = float('-inf')
+    current_sum = 0
+
+    start = 0
+    start_index = 0
+    end_index = 0
+
+    for i in range(len(nums)):
+
+        if current_sum == 0:
+            start = i
+
+        current_sum = current_sum + nums[i]
+
+        if current_sum > max_sum:
+            max_sum = current_sum
+            start_index = start
+            end_index = i
+
+        if current_sum < 0:
+            current_sum = 0
