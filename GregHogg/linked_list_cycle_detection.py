@@ -21,3 +21,25 @@ def has_cycle(head):
 
     # if the loop ends without finding a cycle, return False
     return False
+
+# linked list cycle detection using two pointer
+# time complexity O(n) and space complexity O(1)
+
+def has_cycle_two_pointer(head):
+    # initialize two pointers, slow and fast
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+        # move slow pointer one step at a time
+        slow = slow.next
+
+        # move fast pointer two steps at a time
+        fast = fast.next.next
+
+        # if the two pointers meet, it means there is a cycle
+        if slow == fast:
+            return True
+
+    # if the loop ends without finding a cycle, return False
+    return False
