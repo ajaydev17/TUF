@@ -26,3 +26,36 @@ def generate_permutations(s):
 
     # return the permutations
     return permutations
+
+
+# Iterative approach
+# time complexity O(n * n!) and space complexity O(n * n!)
+
+def generate_permutations_iterative(s):
+    # store the list and index in a stack
+    stack = [(list(s), 0)]
+
+    # initialize the result list
+    result = []
+
+    while stack:
+        # pop a permutation and its index from the stack
+        permutation, index = stack.pop()
+
+        # if the index is equal to the length of the permutation, add it to the result list
+        if index == len(permutation):
+            result.append(''.join(permutation))
+        else:
+            # iterate through the remaining characters
+            for i in range(index, len(permutation)):
+                # swap the current character with the character at the index
+                permutation[i], permutation[index] = permutation[index], permutation[i]
+
+                # push the updated permutation and its index to the stack
+                stack.append((permutation, index + 1))
+
+                # swap the characters back to restore the original permutation
+                permutation[i], permutation[index] = permutation[index], permutation[i]
+
+    # return the permutation
+    return result
