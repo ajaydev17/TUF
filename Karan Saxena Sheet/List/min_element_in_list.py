@@ -1,6 +1,6 @@
 from typing import List
 
-def get_min_element(numbers: List) -> int:
+def get_min_element(numbers: List[int]) -> int:
 
     # initialize a  variable with max value
     min_element = float('inf')
