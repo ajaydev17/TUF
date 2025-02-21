@@ -17,6 +17,6 @@ def right_rotate_array(nums, k):
 
 
 my_array = [-1,-100,3,99]
-k = 2
-right_rotate_array(my_array, k)
+k_rotate = 2
+right_rotate_array(my_array, k_rotate)
 print(my_array)
